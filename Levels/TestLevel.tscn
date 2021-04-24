@@ -63,7 +63,7 @@ shader_param/residual = 50.0
 environment = SubResource( 1 )
 
 [node name="Submarine" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5602, 13.418 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -94.3653, 13.418 )
 
 [node name="TestChamber" parent="." instance=ExtResource( 2 )]
 

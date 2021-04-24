@@ -5,7 +5,7 @@ var propeller
 var Ping
 
 var direction
-var speed = 500
+var speed = 600
 var MOUSE_SENSITIVITY = 0.02
 var ShipNod
 var moveXForm
