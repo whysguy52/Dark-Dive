@@ -41,11 +41,11 @@ surfaces/0 = {
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 5 )
-shader_param/color = Color( 0.741176, 0, 0, 1 )
+shader_param/color = Color( 0.541176, 0, 0, 1 )
 shader_param/shift_dist = 0.0
-shader_param/speed = 40.0
-shader_param/interval = 200.0
-shader_param/residual = 100.0
+shader_param/speed = 80.0
+shader_param/interval = 400.0
+shader_param/residual = 75.0
 
 [sub_resource type="SphereMesh" id=5]
 flip_faces = true
@@ -57,9 +57,9 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Spot" type="SpotLight" parent="ShipNod"]
-transform = Transform( 1, 0, 0, 0, 0.92388, 0.382683, 0, -0.382683, 0.92388, 0, 1, -1.5 )
+transform = Transform( 1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 1, -2 )
 light_energy = 10.0
-spot_range = 50.0
+spot_range = 94.9715
 
 [node name="Propeller" type="MeshInstance" parent="ShipNod"]
 transform = Transform( 0.1395, 0, 0, 0, 2.44347e-08, -0.1395, 0, 0.323648, 1.0532e-08, 0, 0, 1.68 )
@@ -76,7 +76,7 @@ material/0 = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="ShipNod"]
 transform = Transform( 1, 0, 0, 0, 0.980751, 0.195262, 0, -0.195262, 0.980751, 0, 1.35354, 9.65518 )
-far = 500.0
+far = 1000.0
 
 [node name="SonarPing" type="MeshInstance" parent="ShipNod"]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
@@ -84,3 +84,6 @@ visible = false
 material_override = SubResource( 4 )
 mesh = SubResource( 5 )
 material/0 = null
+
+[node name="OmniLight" type="OmniLight" parent="ShipNod"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45469, 1.50312 )
