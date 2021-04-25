@@ -7,7 +7,7 @@
 shader_type spatial;
 render_mode unshaded;
 
-uniform vec4 color : hint_color = vec4( 0.02, 1.0, 0.2, 1.0 );
+uniform vec4 color : hint_color = vec4( 0.02, 1.0, 0.2, 1.0);
 uniform float shift_dist = 0.0;
 uniform float speed = 20.0;
 uniform float interval = 70.0;
@@ -25,6 +25,6 @@ void fragment( )
 	ALPHA = clamp(
 		float( ( dist - residual < d ) && ( d < dist ) ) * ( ( d - ( dist - residual ) ) / residual )
 	,	0.0
-	,	1.0
+	,	0.3
 	);
 }

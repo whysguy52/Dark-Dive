@@ -1,10 +1,19 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Models/Submarine/Submarine.gd" type="Script" id=1]
 [ext_resource path="res://Models/Submarine/BodyMaterial.material" type="Material" id=2]
 [ext_resource path="res://Models/Submarine/Material.material" type="Material" id=3]
 [ext_resource path="res://Models/Submarine/Propeller.gd" type="Script" id=4]
 [ext_resource path="res://Models/Submarine/sonar.shader" type="Shader" id=5]
+[ext_resource path="res://Models/Submarine/UI_Components/OtoE2.png" type="Texture" id=6]
+[ext_resource path="res://Models/Submarine/UI_Components/EtoO2.png" type="Texture" id=7]
+[ext_resource path="res://Models/Submarine/UI_Components/EtoO1.png" type="Texture" id=8]
+[ext_resource path="res://Models/Submarine/UI_Components/Bar_Border.png" type="Texture" id=9]
+[ext_resource path="res://Models/Submarine/UI_Components/OtoE1.png" type="Texture" id=10]
+[ext_resource path="res://Models/Submarine/UI_Components/ConvertButton.png" type="Texture" id=11]
+[ext_resource path="res://Models/Submarine/UI_Components/E_Bar.png" type="Texture" id=12]
+[ext_resource path="res://Models/Submarine/UI_Components/02_Bar.png" type="Texture" id=13]
+[ext_resource path="res://Models/Submarine/Panel.gd" type="Script" id=15]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 2.24726
@@ -45,7 +54,7 @@ shader_param/color = Color( 0.541176, 0, 0, 1 )
 shader_param/shift_dist = 0.0
 shader_param/speed = 80.0
 shader_param/interval = 400.0
-shader_param/residual = 75.0
+shader_param/residual = 50.0
 
 [sub_resource type="SphereMesh" id=5]
 flip_faces = true
@@ -57,9 +66,9 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Spot" type="SpotLight" parent="ShipNod"]
-transform = Transform( 1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 1, -2 )
-light_energy = 10.0
-spot_range = 94.9715
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, -2 )
+light_energy = 100.0
+spot_range = 100.0
 
 [node name="Propeller" type="MeshInstance" parent="ShipNod"]
 transform = Transform( 0.1395, 0, 0, 0, 2.44347e-08, -0.1395, 0, 0.323648, 1.0532e-08, 0, 0, 1.68 )
@@ -87,3 +96,99 @@ material/0 = null
 
 [node name="OmniLight" type="OmniLight" parent="ShipNod"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45469, 1.50312 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Control"]
+anchor_top = 26.967
+anchor_bottom = 26.967
+margin_left = 15.0
+margin_top = -191.68
+margin_right = 458.0
+margin_bottom = -14.6801
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="O2Bar" type="TextureProgress" parent="Control/Panel"]
+margin_left = 58.0
+margin_top = 20.0
+margin_right = 370.0
+margin_bottom = 42.0
+value = 100.0
+rounded = true
+texture_under = ExtResource( 9 )
+texture_progress = ExtResource( 13 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnergyBar" type="TextureProgress" parent="Control/Panel"]
+margin_left = 58.0
+margin_top = 110.0
+margin_right = 370.0
+margin_bottom = 130.0
+value = 100.0
+rounded = true
+texture_under = ExtResource( 9 )
+texture_progress = ExtResource( 12 )
+nine_patch_stretch = true
+
+[node name="Arrow1" type="TextureRect" parent="Control/Panel"]
+margin_left = 376.979
+margin_top = 19.3246
+margin_right = 416.979
+margin_bottom = 59.3246
+texture = ExtResource( 10 )
+
+[node name="Arrow2" type="TextureRect" parent="Control/Panel"]
+margin_left = 372.816
+margin_top = 95.1365
+margin_right = 412.816
+margin_bottom = 135.137
+texture = ExtResource( 6 )
+
+[node name="Arrow3" type="TextureRect" parent="Control/Panel"]
+margin_left = 12.1893
+margin_top = 90.3796
+margin_right = 52.1893
+margin_bottom = 130.38
+texture = ExtResource( 8 )
+
+[node name="Arrow4" type="TextureRect" parent="Control/Panel"]
+margin_left = 16.3516
+margin_top = 13.6758
+margin_right = 56.3516
+margin_bottom = 53.6758
+texture = ExtResource( 7 )
+
+[node name="OtoEBtn" type="Button" parent="Control/Panel"]
+margin_left = 387.071
+margin_top = 63.5962
+margin_right = 419.071
+margin_bottom = 89.5962
+icon = ExtResource( 11 )
+flat = true
+
+[node name="EtoOBtn" type="Button" parent="Control/Panel"]
+margin_left = 10.8902
+margin_top = 57.5858
+margin_right = 42.8902
+margin_bottom = 83.5858
+icon = ExtResource( 11 )
+flat = true
+
+[node name="O2Tick" type="Timer" parent="Control/Panel"]
+autostart = true
+
+[node name="EnTick" type="Timer" parent="Control/Panel"]
+autostart = true
+[connection signal="timeout" from="Control/Panel/O2Tick" to="Control/Panel" method="_on_O2Tick_timeout"]
+[connection signal="timeout" from="Control/Panel/EnTick" to="Control/Panel" method="_on_EnTick_timeout"]

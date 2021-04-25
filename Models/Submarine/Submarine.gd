@@ -5,7 +5,7 @@ var propeller
 var Ping
 
 var direction
-var speed = 1000
+var speed = 2000
 
 var MOUSE_SENSITIVITY = 0.02
 var ShipNod
@@ -53,7 +53,7 @@ func check_user_input():
 		Ping.visible = false
 
 func move(delta):
-	direction = direction * speed * delta
+	direction = direction.normalized() * speed * delta
 	var velocity = move_and_slide(direction)
 	if velocity.length() != 0:
 		propeller.spin(velocity)

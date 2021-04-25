@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Models/Submarine/Submarine.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Levels/level1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/level2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Models/EnergySource/HeatVent.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Environment" id=1]
 background_color = Color( 1, 1, 1, 1 )
@@ -10,9 +11,9 @@ ambient_light_color = Color( 0.188235, 0.188235, 0.188235, 1 )
 ambient_light_energy = 0.0
 ambient_light_sky_contribution = 0.0
 fog_enabled = true
-fog_color = Color( 0, 0.160784, 0.321569, 1 )
+fog_color = Color( 0, 0.0941176, 0.192157, 1 )
 fog_depth_begin = 25.0
-fog_depth_end = 200.0
+fog_depth_end = 287.9
 tonemap_exposure = 0.5
 
 [node name="TestLevel" type="Spatial"]
@@ -21,8 +22,12 @@ tonemap_exposure = 0.5
 environment = SubResource( 1 )
 
 [node name="Submarine" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -19.665, 0 )
 
-[node name="level1" parent="." instance=ExtResource( 2 )]
+[node name="level2" parent="." instance=ExtResource( 2 )]
+
+[node name="HeatVent" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -39.3702, -60.0728 )
 
 [editable path="Submarine"]
+
+[editable path="HeatVent"]
