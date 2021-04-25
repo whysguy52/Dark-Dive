@@ -197,6 +197,6 @@ autostart = true
 
 [node name="EnTick" type="Timer" parent="Control/Panel"]
 autostart = true
-[connection signal="timeout" from="ShipNod/SonarPing/PingTimer" to="ShipNod/SonarPing" method="_on_PingTimer_timeout"]
+[connection signal="timeout" from="ShipNod/SonarPing/PingTimer" to="." method="_on_PingTimer_timeout"]
 [connection signal="timeout" from="Control/Panel/O2Tick" to="Control/Panel" method="_on_O2Tick_timeout"]
 [connection signal="timeout" from="Control/Panel/EnTick" to="Control/Panel" method="_on_EnTick_timeout"]

@@ -3,14 +3,13 @@ extends KinematicBody
 
 var propeller
 var Ping
+var ShipNod
 
 var direction
 var speed = 2000
-
 var MOUSE_SENSITIVITY = 0.02
-var ShipNod
-var moveXForm
 
+var isPingDone = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	propeller = get_node("ShipNod/Propeller")
@@ -24,7 +23,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	check_user_input()
-	get_node("ShipNod/SonarPing")
 
 func _physics_process(delta):
 	move(delta)
@@ -47,11 +45,8 @@ func check_user_input():
 	movementVect.normalized()
 	direction = movementVect
 	
-	if Input.is_action_just_pressed("ui_action"):
-		Ping.visible = true
-		Ping.reset_ping()
-	if Input.is_action_just_released("ui_action"):
-		Ping.visible = false
+	check_ping()
+	
 
 func move(delta):
 	direction = direction.normalized() * speed * delta
@@ -68,5 +63,15 @@ func _input(event):
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
 		ShipNod.rotation_degrees = camera_rot
 
-func redirect_vector_to_local(globalVector:Vector3):
-	return globalVector
+func check_ping():
+	if Input.is_action_pressed("ui_action") && isPingDone == true:
+		Ping.visible = true
+		isPingDone = false
+		Ping.reset_ping()
+	else:
+		pass
+
+func _on_PingTimer_timeout():
+	Ping.visible = false
+	isPingDone = true
+	print_debug(Ping.visible)
