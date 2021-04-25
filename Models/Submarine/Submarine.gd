@@ -49,6 +49,7 @@ func check_user_input():
 	
 	if Input.is_action_just_pressed("ui_action"):
 		Ping.visible = true
+		Ping.reset_ping()
 	if Input.is_action_just_released("ui_action"):
 		Ping.visible = false
 
