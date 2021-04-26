@@ -7,7 +7,7 @@ var ShipNod
 var energyBar
 
 var direction
-var speed = 2000
+var speed = 4000
 var MOUSE_SENSITIVITY = 0.02
 
 var isPingDone = true
@@ -85,7 +85,6 @@ func check_mouse_release():
 func _on_PingTimer_timeout():
 	Ping.visible = false
 	isPingDone = true
-	print_debug(Ping.visible)
 
 func charge():
 	energyBar.value += 5

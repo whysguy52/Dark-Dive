@@ -5,7 +5,8 @@
 [ext_resource path="res://Models/EnergySource/HeatVent.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Environment" id=1]
-background_color = Color( 1, 1, 1, 1 )
+background_mode = 1
+background_color = Color( 0, 0.0392157, 0.172549, 1 )
 background_energy = 0.0
 ambient_light_color = Color( 0.188235, 0.188235, 0.188235, 1 )
 ambient_light_energy = 0.0
@@ -21,9 +22,6 @@ tonemap_exposure = 0.5
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
 
-[node name="Submarine" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -34.7004, -6.73515 )
-
 [node name="HeatVent" parent="." instance=ExtResource( 3 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -34.4314, -73.0325 )
 
@@ -36,10 +34,14 @@ transform = Transform( 0.141571, -1.62449, -1.15801, 1.99402, 0.151201, 0.031667
 [node name="Spatial" parent="HeatVent3" index="3"]
 transform = Transform( 0.0671274, 0.997473, 0.0232804, -0.997743, 0.0671435, 8.77976e-05, -0.00147563, -0.0232338, 0.999729, -0.156113, 8.38591, 0.00354004 )
 
-[node name="level2" parent="." instance=ExtResource( 2 )]
+[node name="Submarine" parent="." instance=ExtResource( 1 )]
 
-[editable path="Submarine"]
+[node name="level2" parent="." instance=ExtResource( 2 )]
 
 [editable path="HeatVent3"]
 
 [editable path="HeatVent3/Spatial"]
+
+[editable path="Submarine"]
+
+[editable path="level2"]

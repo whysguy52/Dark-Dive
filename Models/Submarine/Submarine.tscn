@@ -92,13 +92,13 @@ transform = Transform( 1, 0, 0, 0, 0.980751, 0.195262, 0, -0.195262, 0.980751, 0
 far = 1000.0
 
 [node name="compass" type="MeshInstance" parent="ShipNod/Camera"]
-transform = Transform( 0.05, 0, 0, 0, 0.0490375, -0.0097631, 0, 0.0097631, 0.0490375, 0.8714, 0.391228, -0.822784 )
+transform = Transform( 0.05, 0, 0, 0, 0.0490376, -0.00976311, 0, 0.00976311, 0.0490376, 0.8714, 0.391228, -0.822784 )
 mesh = ExtResource( 17 )
 material/0 = null
 script = ExtResource( 16 )
 
 [node name="SpotLight" type="SpotLight" parent="ShipNod/Camera"]
-transform = Transform( 0.639546, -0.0320315, -0.768085, -0.194022, 0.960061, -0.20159, 0.743866, 0.277951, 0.607788, 0.126826, 0.221261, -0.233829 )
+transform = Transform( 0.639546, -0.0320313, -0.768085, -0.194022, 0.960061, -0.20159, 0.743866, 0.277951, 0.607788, 0.126826, 0.221261, -0.233829 )
 light_energy = 3.0
 spot_range = 1.18516
 spot_angle = 6.53721
@@ -208,6 +208,9 @@ margin_right = 42.8902
 margin_bottom = 83.5858
 icon = ExtResource( 11 )
 flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="O2Tick" type="Timer" parent="Control/Panel"]
 autostart = true
