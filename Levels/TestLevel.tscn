@@ -22,26 +22,43 @@ tonemap_exposure = 0.5
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
 
-[node name="HeatVent" parent="." instance=ExtResource( 3 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -34.4314, -73.0325 )
-
-[node name="HeatVent2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -511.661, -555.694 )
-
-[node name="HeatVent3" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.141571, -1.62449, -1.15801, 1.99402, 0.151201, 0.0316674, 0.0618245, -1.15679, 1.63034, -248.148, -392.528, -324.679 )
-
-[node name="Spatial" parent="HeatVent3" index="3"]
-transform = Transform( 0.0671274, 0.997473, 0.0232804, -0.997743, 0.0671435, 8.77976e-05, -0.00147563, -0.0232338, 0.999729, -0.156113, 8.38591, 0.00354004 )
+[node name="level2" parent="." instance=ExtResource( 2 )]
 
 [node name="Submarine" parent="." instance=ExtResource( 1 )]
 
-[node name="level2" parent="." instance=ExtResource( 2 )]
+[node name="HeatVents" type="Spatial" parent="."]
 
-[editable path="HeatVent3"]
+[node name="HeatVent" parent="HeatVents" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -34.4314, -73.0325 )
 
-[editable path="HeatVent3/Spatial"]
+[node name="HeatVent2" parent="HeatVents" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -517.654, -555.694 )
+
+[node name="Heat_Pre_Tunnels" parent="HeatVents" instance=ExtResource( 3 )]
+transform = Transform( 0.141571, -1.62449, -1.15801, 1.99402, 0.151201, 0.0316674, 0.0618245, -1.15679, 1.63034, -248.148, -392.528, -324.679 )
+
+[node name="Heat_Dead_End" parent="HeatVents" instance=ExtResource( 3 )]
+transform = Transform( -3.56043e-08, 0.312694, -1.16699, 1.20816, -5.28102e-08, -5.10107e-08, -6.42133e-08, -1.16699, -0.312694, -286.522, 53.099, -782.39 )
+
+[node name="Spatial" parent="HeatVents/Heat_Dead_End" index="3"]
+transform = Transform( -4.37114e-08, 1, 3.55271e-15, -1, -4.37114e-08, 2.98023e-08, 1.49012e-08, 3.33067e-15, 1, 0, 8.38641, 3.05176e-05 )
+
+[node name="HeatVent_item_Room" parent="HeatVents" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -593.707, -644.423, -362.6 )
+
+[node name="Heat_Big_Chamber1" parent="HeatVents" instance=ExtResource( 3 )]
+transform = Transform( 0.686762, -1.87839, 0, 1.87839, 0.686762, 0, 0, 0, 2, 47.0539, -705.67, -416.344 )
+
+[node name="Heat_Big_Chamber2" parent="HeatVents" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 1.54109, 1.27477, 0, -1.27477, 1.54109, -307.711, -663.318, 720.942 )
+
+[node name="Spatial" parent="HeatVents/Heat_Big_Chamber2" index="3"]
+transform = Transform( 1, 0, 0, 0, 0.767232, -0.641369, 0, 0.641369, 0.767232, 0, 6.6817, -0.516861 )
+
+[editable path="level2"]
 
 [editable path="Submarine"]
 
-[editable path="level2"]
+[editable path="HeatVents/Heat_Dead_End"]
+
+[editable path="HeatVents/Heat_Big_Chamber2"]

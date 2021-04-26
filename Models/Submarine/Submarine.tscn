@@ -161,6 +161,9 @@ rounded = true
 texture_under = ExtResource( 9 )
 texture_progress = ExtResource( 12 )
 nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Arrow1" type="TextureRect" parent="Control/Panel"]
 margin_left = 376.979

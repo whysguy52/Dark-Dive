@@ -31,27 +31,32 @@ func _ready():
 
 #Oxygen to Energy button event handlers
 func _on_OtoETick_timeout():
-	EnLevels.value += 4
+	EnLevels.value += 6
 	O2Levels.value -= 6
 func _on_OtoEBtn_pressed():
 	if OtoETimer.is_stopped():
+		OtoEBtn.release_focus()
 		OtoETimer.start()
 		OtoEBtn.icon = greenButtonIcon
 	else:
-		OtoETimer.start()
+		OtoETimer.stop()
+		OtoEBtn.release_focus()
 		OtoEBtn.icon = redButtonIcon
 
 #Energy to Oxygen button even handlers
 func _on_EtoOTick_timeout():
-	O2Levels.value += 4
+	O2Levels.value += 6
 	EnLevels.value -= 6
+	print_debug(O2Levels.value)
 
 func _on_EtoOBtn_pressed():
 	if EtoOTimer.is_stopped():
+		EtoOBtn.release_focus()
 		EtoOTimer.start()
 		EtoOBtn.icon = greenButtonIcon
 	else:
 		EtoOTimer.stop()
+		EtoOBtn.release_focus()
 		EtoOBtn.icon = redButtonIcon
 
 #bar timers
