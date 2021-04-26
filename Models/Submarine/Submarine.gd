@@ -82,6 +82,7 @@ func check_mouse_release():
 		Input.set_mouse_mode((Input.MOUSE_MODE_CAPTURED))
 
 func _on_PingTimer_timeout():
+	energyBar -= 10
 	Ping.visible = false
 	isPingDone = true
 	print_debug(Ping.visible)

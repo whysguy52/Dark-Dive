@@ -13,8 +13,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	global_transform.basis.x = Vector3(1,0,0)
-	global_transform.basis.y = Vector3(0,1,0)
-	global_transform.basis.z = Vector3(0,0,1)
+	global_transform.basis.x = Vector3(0.05,0,0)
+	global_transform.basis.y = Vector3(0,0.05,0)
+	global_transform.basis.z = Vector3(0,0,0.05)
 	global_transform.basis.orthonormalized()
 	#print_debug(global_transform.basis.x)
