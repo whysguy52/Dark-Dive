@@ -6,19 +6,19 @@
 [ext_resource path="res://Menus/PrePlayScreen/HeatVentIcon.png" type="Texture" id=4]
 [ext_resource path="res://Menus/PrePlayScreen/PlayBtn.gd" type="Script" id=5]
 
-[sub_resource type="DynamicFont" id=4]
-size = 40
-font_data = ExtResource( 1 )
-
 [sub_resource type="DynamicFont" id=1]
 size = 40
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 26
+size = 40
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
+size = 26
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
 size = 21
 font_data = ExtResource( 1 )
 
@@ -44,7 +44,7 @@ margin_left = 35.6762
 margin_top = 319.897
 margin_right = 683.676
 margin_bottom = 631.897
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
 text = "Mission:
 Find the sunken submarine 
 and recover it's data!
@@ -78,7 +78,7 @@ __meta__ = {
 [node name="PlayLabel" type="Label" parent="PlayBtn"]
 margin_right = 40.0
 margin_bottom = 14.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -107,7 +107,7 @@ __meta__ = {
 [node name="W_Label" type="Label" parent="IconContainer/W_Icon"]
 margin_right = 41.0
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "W"
 align = 1
@@ -121,7 +121,7 @@ margin_left = -33.2978
 margin_top = -54.7035
 margin_right = 78.7022
 margin_bottom = -14.7035
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Forward"
 align = 1
@@ -142,7 +142,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="IconContainer/A_Icon"]
 margin_right = 41.0
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "A"
 align = 1
@@ -153,7 +153,7 @@ margin_left = -176.509
 margin_top = 0.21344
 margin_right = -0.508911
 margin_bottom = 40.2134
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Strafe Left"
 align = 1
@@ -174,7 +174,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="IconContainer/S_Icon"]
 margin_right = 41.0
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "S"
 align = 1
@@ -185,7 +185,7 @@ margin_left = -74.9355
 margin_top = 47.4072
 margin_right = 117.065
 margin_bottom = 87.4072
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Reverse"
 align = 1
@@ -206,7 +206,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="IconContainer/D_Icon"]
 margin_right = 41.0
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "D"
 align = 1
@@ -217,7 +217,7 @@ margin_left = 41.9369
 margin_top = 0.402618
 margin_right = 233.937
 margin_bottom = 40.4026
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Strafe Right"
 align = 1
@@ -244,7 +244,7 @@ __meta__ = {
 margin_left = 0.890869
 margin_right = 80.8909
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Space"
 align = 1
@@ -258,7 +258,7 @@ margin_left = 100.0
 margin_top = 2.0
 margin_right = 260.0
 margin_bottom = 85.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "UP
 (Relative)"
@@ -279,7 +279,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="IconContainer/C_Icon"]
 margin_right = 41.0
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "C"
 align = 1
@@ -290,7 +290,7 @@ margin_left = -176.0
 margin_top = -28.0
 margin_right = -16.0
 margin_bottom = 55.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Down
 (Relative)"
@@ -312,7 +312,7 @@ __meta__ = {
 [node name="W_Label" type="Label" parent="IconContainer/E_Icon"]
 margin_right = 41.0
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "E"
 align = 1
@@ -326,7 +326,7 @@ margin_left = -140.114
 margin_top = 39.5833
 margin_right = 179.886
 margin_bottom = 122.583
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Sonar
 (consumes 10 energy)"
@@ -348,7 +348,7 @@ __meta__ = {
 [node name="W_Label" type="Label" parent="IconContainer/Tab_Icon"]
 margin_right = 41.0
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Tab"
 align = 1
@@ -362,7 +362,7 @@ margin_left = -140.114
 margin_top = 39.5833
 margin_right = 179.886
 margin_bottom = 122.583
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Release the mouse/
 Capture the mouse"
@@ -381,7 +381,7 @@ margin_left = -254.468
 margin_top = -235.914
 margin_right = 249.532
 margin_bottom = -98.9139
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Press red buttons to convert
 O2 to energy

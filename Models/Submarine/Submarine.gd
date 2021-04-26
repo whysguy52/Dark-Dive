@@ -1,14 +1,18 @@
 extends KinematicBody
 
-
+#objects
 var propeller
 var Ping
 var ShipNod
 var energyBar
+var O2Bar
+var spotLight
 
+#primitives
 var direction
 var speed = 4000
 var MOUSE_SENSITIVITY = 0.02
+var isPowered = true
 
 var isPingDone = true
 # Called when the node enters the scene tree for the first time.
@@ -17,6 +21,9 @@ func _ready():
 	ShipNod = get_node("ShipNod")
 	Ping = get_node("ShipNod/SonarPing")
 	energyBar = get_node("Control/Panel/EnergyBar")
+	O2Bar = get_node("Control/Panel/O2Bar")
+	spotLight = get_node("ShipNod/Spot")
+	
 	direction = Vector3()
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -31,9 +38,12 @@ func _physics_process(delta):
 
 func check_user_input():
 	
-	check_movement()
-	check_ping()
+	if isPowered:
+		check_movement()
+		check_ping()
 	check_mouse_release()
+	check_if_dead()
+	check_if_powered()
 
 func move(delta):
 	direction = direction.normalized() * speed * delta
@@ -41,6 +51,7 @@ func move(delta):
 	if velocity.length() != 0:
 		propeller.spin(velocity)
 
+#mouse controls
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		ShipNod.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY * -1))
@@ -88,3 +99,15 @@ func _on_PingTimer_timeout():
 
 func charge():
 	energyBar.value += 5
+
+func check_if_dead():
+	if O2Bar.value == 0:
+		get_tree().change_scene("res://Menus/TitleScreen.tscn")
+
+func check_if_powered():
+	if energyBar.value == 0:
+		isPowered = false
+		spotLight.visible = false
+	elif isPowered == false && spotLight.visible == false:
+		isPowered = true
+		spotLight.visible = true
