@@ -18,6 +18,6 @@ func _ready():
 
 func _on_NextScreenBtn_gui_clicked(event):
 	if event.is_pressed():
-		get_tree().change_scene("res://Menus/PrePlayScreen.tscn")
+		get_tree().change_scene("res://Menus/PrePlayScreen/PrePlayScreen.tscn")
 		print_debug("it's pressed")
 		
