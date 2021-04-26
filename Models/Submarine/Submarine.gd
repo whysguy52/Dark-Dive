@@ -53,7 +53,7 @@ func move(delta):
 
 #mouse controls
 func _input(event):
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and isPowered:
 		ShipNod.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY * -1))
 		rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))
 
