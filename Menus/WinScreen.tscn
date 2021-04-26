@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Menus/ToMainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/Space_Mono/SpaceMono-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -244.729
+margin_top = -305.486
+margin_right = 243.271
+margin_bottom = -156.486
+custom_fonts/font = SubResource( 1 )
+text = "You Win!"
+
+[node name="ToMainMenu" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -135.311
+margin_top = 165.719
+margin_right = 137.689
+margin_bottom = 226.719
+color = Color( 0.176471, 0.176471, 0.176471, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ToMainMenu"]
+margin_left = 4.75684
+margin_right = 268.757
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 2 )
+text = "Main Screen"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="gui_input" from="ToMainMenu" to="ToMainMenu" method="_on_ColorRect_gui_input"]

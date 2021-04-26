@@ -10,7 +10,7 @@ var spotLight
 
 #primitives
 var direction
-var speed = 4000
+var speed = 2000
 var MOUSE_SENSITIVITY = 0.02
 var isPowered = true
 
@@ -31,6 +31,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	check_if_dead()
+	check_if_powered()
 	check_user_input()
 
 func _physics_process(delta):
@@ -42,8 +44,7 @@ func check_user_input():
 		check_movement()
 		check_ping()
 	check_mouse_release()
-	check_if_dead()
-	check_if_powered()
+
 
 func move(delta):
 	direction = direction.normalized() * speed * delta
@@ -100,10 +101,6 @@ func _on_PingTimer_timeout():
 func charge():
 	energyBar.value += 5
 
-func check_if_dead():
-	if O2Bar.value == 0:
-		get_tree().change_scene("res://Menus/TitleScreen.tscn")
-
 func check_if_powered():
 	if energyBar.value == 0:
 		isPowered = false
@@ -111,3 +108,12 @@ func check_if_powered():
 	elif isPowered == false && spotLight.visible == false:
 		isPowered = true
 		spotLight.visible = true
+
+func check_if_dead():
+	if O2Bar.value == 0:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().change_scene("res://Menus/LoseScreen.tscn")
+
+func you_win():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().change_scene("res://Menus/WinScreen.tscn")
