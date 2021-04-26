@@ -21,10 +21,11 @@ surfaces/0 = {
 albedo_texture = ExtResource( 2 )
 
 [sub_resource type="CylinderShape" id=3]
-radius = 3.47461
+radius = 2.64351
 height = 13.5643
 
 [node name="HeatVent" type="StaticBody"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 
 [node name="Cone" type="MeshInstance" parent="."]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0 )
@@ -38,5 +39,8 @@ shape = SubResource( 3 )
 
 [node name="Spatial" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.06445, 0 )
+
+[node name="CollisionShape" parent="Spatial" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.6698, 0 )
 
 [editable path="Spatial"]

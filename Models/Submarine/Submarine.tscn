@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Models/Submarine/Submarine.gd" type="Script" id=1]
 [ext_resource path="res://Models/Submarine/BodyMaterial.material" type="Material" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Models/Submarine/UI_Components/02_Bar.png" type="Texture" id=13]
 [ext_resource path="res://Models/Submarine/SonarPing.gd" type="Script" id=14]
 [ext_resource path="res://Models/Submarine/Panel.gd" type="Script" id=15]
+[ext_resource path="res://Models/Submarine/compass.gd" type="Script" id=16]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 2.24726
@@ -61,6 +62,8 @@ shader_param/time = 0.0
 [sub_resource type="SphereMesh" id=5]
 flip_faces = true
 
+[sub_resource type="CapsuleMesh" id=6]
+
 [node name="Submarine" type="KinematicBody"]
 script = ExtResource( 1 )
 
@@ -103,6 +106,12 @@ one_shot = true
 
 [node name="OmniLight" type="OmniLight" parent="ShipNod"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45469, 1.50312 )
+
+[node name="compass" type="MeshInstance" parent="ShipNod"]
+transform = Transform( 0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0.434986, 1.55882, 8.84298 )
+mesh = SubResource( 6 )
+material/0 = null
+script = ExtResource( 16 )
 
 [node name="Control" type="Control" parent="."]
 margin_right = 40.0
@@ -183,6 +192,9 @@ margin_right = 419.071
 margin_bottom = 89.5962
 icon = ExtResource( 11 )
 flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="EtoOBtn" type="Button" parent="Control/Panel"]
 margin_left = 10.8902
@@ -197,6 +209,16 @@ autostart = true
 
 [node name="EnTick" type="Timer" parent="Control/Panel"]
 autostart = true
+
+[node name="EtoOTick" type="Timer" parent="Control/Panel"]
+wait_time = 0.5
+
+[node name="OtoETick" type="Timer" parent="Control/Panel"]
+wait_time = 0.5
 [connection signal="timeout" from="ShipNod/SonarPing/PingTimer" to="." method="_on_PingTimer_timeout"]
+[connection signal="pressed" from="Control/Panel/OtoEBtn" to="Control/Panel" method="_on_OtoEBtn_pressed"]
+[connection signal="pressed" from="Control/Panel/EtoOBtn" to="Control/Panel" method="_on_EtoOBtn_pressed"]
 [connection signal="timeout" from="Control/Panel/O2Tick" to="Control/Panel" method="_on_O2Tick_timeout"]
 [connection signal="timeout" from="Control/Panel/EnTick" to="Control/Panel" method="_on_EnTick_timeout"]
+[connection signal="timeout" from="Control/Panel/EtoOTick" to="Control/Panel" method="_on_EtoOTick_timeout"]
+[connection signal="timeout" from="Control/Panel/OtoETick" to="Control/Panel" method="_on_OtoETick_timeout"]

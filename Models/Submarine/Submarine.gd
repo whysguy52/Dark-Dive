@@ -4,6 +4,7 @@ extends KinematicBody
 var propeller
 var Ping
 var ShipNod
+var energyBar
 
 var direction
 var speed = 2000
@@ -15,6 +16,7 @@ func _ready():
 	propeller = get_node("ShipNod/Propeller")
 	ShipNod = get_node("ShipNod")
 	Ping = get_node("ShipNod/SonarPing")
+	energyBar = get_node("Control/Panel/EnergyBar")
 	direction = Vector3()
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -29,24 +31,9 @@ func _physics_process(delta):
 
 func check_user_input():
 	
-	var inputVect = Vector3()
-	var movementVect = Vector3()
-	
-	var forward = ShipNod.global_transform.basis.z
-	var right = ShipNod.global_transform.basis.x
-	var up = ShipNod.global_transform.basis.y
-	
-	inputVect.z = -int(Input.is_action_pressed("ui_forward")) + int(Input.is_action_pressed("ui_backward"))
-	movementVect = movementVect + inputVect.z * forward
-	inputVect.x = -int(Input.is_action_pressed("ui_left")) + int(Input.is_action_pressed("ui_right"))
-	movementVect = movementVect + inputVect.x * right
-	inputVect.y = -int(Input.is_action_pressed("ui_up")) + int(Input.is_action_pressed("ui_down"))
-	movementVect = movementVect + inputVect.y * up
-	movementVect.normalized()
-	direction = movementVect
-	
+	check_movement()
 	check_ping()
-	
+	check_mouse_release()
 
 func move(delta):
 	direction = direction.normalized() * speed * delta
@@ -63,6 +50,23 @@ func _input(event):
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
 		ShipNod.rotation_degrees = camera_rot
 
+func check_movement():
+	var inputVect = Vector3()
+	var movementVect = Vector3()
+	
+	var forward = ShipNod.global_transform.basis.z
+	var right = ShipNod.global_transform.basis.x
+	var up = ShipNod.global_transform.basis.y
+	
+	inputVect.z = -int(Input.is_action_pressed("ui_forward")) + int(Input.is_action_pressed("ui_backward"))
+	movementVect = movementVect + inputVect.z * forward
+	inputVect.x = -int(Input.is_action_pressed("ui_left")) + int(Input.is_action_pressed("ui_right"))
+	movementVect = movementVect + inputVect.x * right
+	inputVect.y = -int(Input.is_action_pressed("ui_up")) + int(Input.is_action_pressed("ui_down"))
+	movementVect = movementVect + inputVect.y * up
+	movementVect.normalized()
+	direction = movementVect
+
 func check_ping():
 	if Input.is_action_pressed("ui_action") && isPingDone == true:
 		Ping.visible = true
@@ -71,7 +75,16 @@ func check_ping():
 	else:
 		pass
 
+func check_mouse_release():
+	if Input.is_action_just_pressed("ui_tab") && Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	elif Input.is_action_just_pressed("ui_tab") && Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+		Input.set_mouse_mode((Input.MOUSE_MODE_CAPTURED))
+
 func _on_PingTimer_timeout():
 	Ping.visible = false
 	isPingDone = true
 	print_debug(Ping.visible)
+
+func charge():
+	energyBar.value += 5

@@ -22,12 +22,15 @@ tonemap_exposure = 0.5
 environment = SubResource( 1 )
 
 [node name="Submarine" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.8713, -6.73515 )
 
 [node name="level2" parent="." instance=ExtResource( 2 )]
 
 [node name="HeatVent" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -39.3702, -60.0728 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -35.6859, -65.9966 )
 
 [editable path="Submarine"]
 
 [editable path="HeatVent"]
+
+[editable path="HeatVent/Spatial"]
