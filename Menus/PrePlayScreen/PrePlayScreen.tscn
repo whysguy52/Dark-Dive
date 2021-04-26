@@ -1,0 +1,435 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Fonts/Space_Mono/SpaceMono-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Menus/PrePlayScreen/AscendIcon.png" type="Texture" id=2]
+[ext_resource path="res://Menus/PrePlayScreen/O2andE_Icon.png" type="Texture" id=3]
+[ext_resource path="res://Menus/PrePlayScreen/HeatVentIcon.png" type="Texture" id=4]
+[ext_resource path="res://Menus/PrePlayScreen/PlayBtn.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 21
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 80
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 60
+font_data = ExtResource( 1 )
+
+[node name="PrePlayScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.8909
+margin_bottom = -0.890869
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 35.6762
+margin_top = 319.897
+margin_right = 683.676
+margin_bottom = 631.897
+custom_fonts/font = SubResource( 4 )
+text = "Mission:
+Find the sunken submarine 
+and recover it's data!
+(for the jam, you just have
+to touch the sunken sub)"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+anchor_right = 1.0
+margin_left = 697.0
+margin_top = 2.0
+margin_right = -1223.0
+margin_bottom = 1082.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayBtn" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 254.786
+margin_top = 724.902
+margin_right = -1565.21
+margin_bottom = -293.098
+mouse_filter = 1
+color = Color( 0.184314, 0.184314, 0.184314, 1 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayLabel" type="Label" parent="PlayBtn"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 1 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IconContainer" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 733.827
+margin_top = 84.0904
+margin_right = -672.173
+margin_bottom = -782.91
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="W_Icon" type="ColorRect" parent="IconContainer"]
+margin_left = 223.723
+margin_top = 64.0826
+margin_right = 263.723
+margin_bottom = 104.083
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="W_Label" type="Label" parent="IconContainer/W_Icon"]
+margin_right = 41.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "W"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ForwardLabel" type="Label" parent="IconContainer/W_Icon"]
+margin_left = -33.2978
+margin_top = -54.7035
+margin_right = 78.7022
+margin_bottom = -14.7035
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Forward"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="A_Icon" type="ColorRect" parent="IconContainer"]
+margin_left = 182.048
+margin_top = 105.681
+margin_right = 222.048
+margin_bottom = 145.681
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="IconContainer/A_Icon"]
+margin_right = 41.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "A"
+align = 1
+valign = 1
+
+[node name="StrafeLabel" type="Label" parent="IconContainer/A_Icon"]
+margin_left = -176.509
+margin_top = 0.21344
+margin_right = -0.508911
+margin_bottom = 40.2134
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Strafe Left"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="S_Icon" type="ColorRect" parent="IconContainer"]
+margin_left = 224.027
+margin_top = 105.941
+margin_right = 264.027
+margin_bottom = 145.941
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="IconContainer/S_Icon"]
+margin_right = 41.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "S"
+align = 1
+valign = 1
+
+[node name="ReverseLabel2" type="Label" parent="IconContainer/S_Icon"]
+margin_left = -74.9355
+margin_top = 47.4072
+margin_right = 117.065
+margin_bottom = 87.4072
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Reverse"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="D_Icon" type="ColorRect" parent="IconContainer"]
+margin_left = 266.177
+margin_top = 105.57
+margin_right = 306.177
+margin_bottom = 145.57
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="IconContainer/D_Icon"]
+margin_right = 41.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "D"
+align = 1
+valign = 1
+
+[node name="StrafeLabel" type="Label" parent="IconContainer/D_Icon"]
+margin_left = 41.9369
+margin_top = 0.402618
+margin_right = 233.937
+margin_bottom = 40.4026
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Strafe Right"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AscendIcon" type="Sprite" parent="IconContainer"]
+position = Vector2( 826.23, 120.889 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="Space_Icon" type="ColorRect" parent="IconContainer"]
+margin_left = 868.473
+margin_top = -2.14526
+margin_right = 953.473
+margin_bottom = 37.8547
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="IconContainer/Space_Icon"]
+margin_left = 0.890869
+margin_right = 80.8909
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Space"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StrafeLabel" type="Label" parent="IconContainer/Space_Icon"]
+margin_left = 100.0
+margin_top = 2.0
+margin_right = 260.0
+margin_bottom = 85.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "UP
+(Relative)"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="C_Icon" type="ColorRect" parent="IconContainer"]
+margin_left = 704.499
+margin_top = 200.006
+margin_right = 744.499
+margin_bottom = 240.006
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="IconContainer/C_Icon"]
+margin_right = 41.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "C"
+align = 1
+valign = 1
+
+[node name="StrafeLabel" type="Label" parent="IconContainer/C_Icon"]
+margin_left = -176.0
+margin_top = -28.0
+margin_right = -16.0
+margin_bottom = 55.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Down
+(Relative)"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="E_Icon" type="ColorRect" parent="IconContainer"]
+margin_left = 226.718
+margin_top = 232.554
+margin_right = 266.718
+margin_bottom = 272.554
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="W_Label" type="Label" parent="IconContainer/E_Icon"]
+margin_right = 41.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "E"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ForwardLabel" type="Label" parent="IconContainer/E_Icon"]
+margin_left = -140.114
+margin_top = 39.5833
+margin_right = 179.886
+margin_bottom = 122.583
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Sonar
+(consumes 10 energy)"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tab_Icon" type="ColorRect" parent="IconContainer"]
+margin_left = 781.953
+margin_top = 316.498
+margin_right = 831.953
+margin_bottom = 356.498
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="W_Label" type="Label" parent="IconContainer/Tab_Icon"]
+margin_right = 41.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Tab"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ForwardLabel" type="Label" parent="IconContainer/Tab_Icon"]
+margin_left = -140.114
+margin_top = 39.5833
+margin_right = 179.886
+margin_bottom = 122.583
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Release the mouse/
+Capture the mouse"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="O2andE_Icon" type="Sprite" parent="IconContainer/Tab_Icon"]
+position = Vector2( 37.7976, 466.124 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="IconContainer/Tab_Icon/O2andE_Icon"]
+margin_left = -254.468
+margin_top = -235.914
+margin_right = 249.532
+margin_bottom = -98.9139
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Press red buttons to convert
+O2 to energy
+or
+energy to O2"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow" type="Label" parent="IconContainer/Tab_Icon/O2andE_Icon"]
+margin_left = 16.0
+margin_top = -231.326
+margin_right = 65.0
+margin_bottom = -112.326
+rect_rotation = 180.0
+custom_fonts/font = SubResource( 5 )
+text = "^"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReferenceRect" type="ReferenceRect" parent="IconContainer/Tab_Icon/O2andE_Icon"]
+margin_left = -286.0
+margin_top = -492.0
+margin_right = 269.0
+margin_bottom = 148.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeatVentIcon" type="Sprite" parent="."]
+position = Vector2( 981.363, 794.691 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="HeatVentIcon"]
+margin_left = -290.315
+margin_top = -467.339
+margin_right = 338.685
+margin_bottom = -284.339
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Sit in the smoke 
+to regain energy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="gui_input" from="PlayBtn" to="PlayBtn" method="_on_PlayBtn_gui_input"]

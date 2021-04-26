@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Fonts/Space_Mono/SpaceMono-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Fonts/Space_Mono/SpaceMono-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://NextScreenBtn.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+outline_size = 2
+outline_color = Color( 0.898039, 0.188235, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 2 )
+
+[node name="Main Menu" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_right = 960.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -274.5
+margin_top = -235.0
+margin_right = 274.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_right = 549.0
+margin_bottom = 149.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.0431373, 0.160784, 0.921569, 1 )
+text = "DEEP DIVE"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SubTitle" type="Label" parent="VBoxContainer"]
+margin_top = 153.0
+margin_right = 549.0
+margin_bottom = 225.0
+custom_fonts/font = SubResource( 2 )
+text = "Search & Recover"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextScreenBtn" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -120.0
+margin_right = 120.0
+margin_bottom = 52.0
+mouse_filter = 1
+color = Color( 0.207843, 0.207843, 0.207843, 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextScreenLabel" type="Label" parent="NextScreenBtn"]
+margin_left = 10.0
+margin_right = 220.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 3 )
+text = "Next Screen"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="gui_input" from="NextScreenBtn" to="NextScreenBtn" method="_on_NextScreenBtn_gui_clicked"]
