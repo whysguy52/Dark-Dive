@@ -10,6 +10,6 @@ func _ready():
 
 
 func reset_ping():
-	material_override.set_shader_param("time", OS.get_ticks_msec() / 1000 - 0.5)
+	material_override.set_shader_param("time", OS.get_ticks_msec() / 1000.0 - 0.5)
 	PingTimer.start()
 	

@@ -1,7 +1,5 @@
 extends Area
 
-
-signal charge
 var ChargeTimer
 var player
 
@@ -22,7 +20,7 @@ func _on_Spatial_body_entered(body):
 	ChargeTimer.start()
 
 
-func _on_Spatial_body_exited(body):
+func _on_Spatial_body_exited(_body):
 	ChargeTimer.stop()
 	player = null
 

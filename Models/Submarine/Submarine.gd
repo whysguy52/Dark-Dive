@@ -23,7 +23,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	check_user_input()
 
 func _physics_process(delta):
@@ -69,6 +69,7 @@ func check_movement():
 
 func check_ping():
 	if Input.is_action_pressed("ui_action") && isPingDone == true:
+		energyBar.value -= 10
 		Ping.visible = true
 		isPingDone = false
 		Ping.reset_ping()
@@ -82,7 +83,6 @@ func check_mouse_release():
 		Input.set_mouse_mode((Input.MOUSE_MODE_CAPTURED))
 
 func _on_PingTimer_timeout():
-	energyBar -= 10
 	Ping.visible = false
 	isPingDone = true
 	print_debug(Ping.visible)

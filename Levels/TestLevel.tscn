@@ -22,29 +22,23 @@ tonemap_exposure = 0.5
 environment = SubResource( 1 )
 
 [node name="Submarine" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.8713, -6.73515 )
-
-[node name="level2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -34.7004, -6.73515 )
 
 [node name="HeatVent" parent="." instance=ExtResource( 3 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -35.6859, -65.9966 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -34.4314, -73.0325 )
 
 [node name="HeatVent2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -503.538, -555.694 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -511.661, -555.694 )
 
 [node name="HeatVent3" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.141571, -1.82738, -0.80041, 1.99402, 0.154482, 0, 0.0618244, -0.798019, 1.83285, -228.351, -392.119, -383.206 )
+transform = Transform( 0.141571, -1.62449, -1.15801, 1.99402, 0.151201, 0.0316674, 0.0618245, -1.15679, 1.63034, -248.148, -392.528, -324.679 )
 
 [node name="Spatial" parent="HeatVent3" index="3"]
 transform = Transform( 0.0671274, 0.997473, 0.0232804, -0.997743, 0.0671435, 8.77976e-05, -0.00147563, -0.0232338, 0.999729, -0.156113, 8.38591, 0.00354004 )
 
+[node name="level2" parent="." instance=ExtResource( 2 )]
+
 [editable path="Submarine"]
-
-[editable path="HeatVent"]
-
-[editable path="HeatVent/Spatial"]
-
-[editable path="HeatVent2"]
 
 [editable path="HeatVent3"]
 
