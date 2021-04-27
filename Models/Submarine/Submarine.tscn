@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Models/Submarine/Submarine.gd" type="Script" id=1]
 [ext_resource path="res://Models/Submarine/BodyMaterial.material" type="Material" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Models/Submarine/compass.gd" type="Script" id=16]
 [ext_resource path="res://Models/Submarine/Compass.tres" type="ArrayMesh" id=17]
 [ext_resource path="res://Models/Submarine/Ping.wav" type="AudioStream" id=18]
+[ext_resource path="res://Models/Submarine/PropellerSoundFX.wav" type="AudioStream" id=19]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 2.24726
@@ -81,6 +82,10 @@ mesh = SubResource( 2 )
 material/0 = ExtResource( 3 )
 script = ExtResource( 4 )
 
+[node name="PropellerAudio" type="AudioStreamPlayer" parent="ShipNod/Propeller"]
+stream = ExtResource( 19 )
+volume_db = -20.0
+
 [node name="SubmarineBody" type="MeshInstance" parent="ShipNod"]
 transform = Transform( 1, 0, 0, 0, 7.54979e-08, 1, 0, -1, 7.54979e-08, 0, 0, 0 )
 mesh = SubResource( 3 )
@@ -118,6 +123,8 @@ one_shot = true
 
 [node name="PingAudio" type="AudioStreamPlayer" parent="ShipNod/SonarPing"]
 stream = ExtResource( 18 )
+volume_db = -20.0
+pitch_scale = 0.35
 
 [node name="OmniLight" type="OmniLight" parent="ShipNod"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45469, 1.50312 )

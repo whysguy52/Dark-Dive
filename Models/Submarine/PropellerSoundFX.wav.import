@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PropellerSoundFX.wav-3df2db9799693ca7d047990b90b132e3.sample"
+
+[deps]
+
+source_file="res://Models/Submarine/PropellerSoundFX.wav"
+dest_files=[ "res://.import/PropellerSoundFX.wav-3df2db9799693ca7d047990b90b132e3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Models/Submarine/Submarine.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/level2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Models/EnergySource/HeatVentTexture.png" type="Texture" id=3]
 [ext_resource path="res://Models/EnergySource/Smoke.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/UnderWaterFX.wav" type="AudioStream" id=5]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -161,6 +162,11 @@ shape = SubResource( 4 )
 
 [node name="Spatial" parent="HeatVents/Heat_Big_Chamber2" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 0.767232, -0.641369, 0, 0.641369, 0.767232, 0, 7.3403, -0.256256 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = 20.0
+autoplay = true
 
 [editable path="level2"]
 
