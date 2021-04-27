@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Models/Submarine/Submarine.gd" type="Script" id=1]
 [ext_resource path="res://Models/Submarine/BodyMaterial.material" type="Material" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Models/Submarine/Panel.gd" type="Script" id=15]
 [ext_resource path="res://Models/Submarine/compass.gd" type="Script" id=16]
 [ext_resource path="res://Models/Submarine/Compass.tres" type="ArrayMesh" id=17]
+[ext_resource path="res://Models/Submarine/Ping.wav" type="AudioStream" id=18]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 2.24726
@@ -114,6 +115,9 @@ script = ExtResource( 14 )
 [node name="PingTimer" type="Timer" parent="ShipNod/SonarPing"]
 wait_time = 5.0
 one_shot = true
+
+[node name="PingAudio" type="AudioStreamPlayer" parent="ShipNod/SonarPing"]
+stream = ExtResource( 18 )
 
 [node name="OmniLight" type="OmniLight" parent="ShipNod"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45469, 1.50312 )

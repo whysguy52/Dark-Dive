@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/UnderWaterFX.wav-f20db68ff1151086970485f5a679ac3d.sample"
+
+[deps]
+
+source_file="res://Levels/UnderWaterFX.wav"
+dest_files=[ "res://.import/UnderWaterFX.wav-f20db68ff1151086970485f5a679ac3d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
