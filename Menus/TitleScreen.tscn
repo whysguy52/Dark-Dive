@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Fonts/Space_Mono/SpaceMono-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/Space_Mono/SpaceMono-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://NextScreenBtn.gd" type="Script" id=3]
+[ext_resource path="res://ThumbNail.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -19,30 +20,31 @@ size = 32
 font_data = ExtResource( 2 )
 
 [node name="Main Menu" type="Control"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -960.0
-margin_right = 960.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1.0
+margin_bottom = -2.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -274.5
-margin_top = -235.0
-margin_right = 274.5
+margin_left = 5.0
+margin_top = 2.0
+margin_bottom = 3.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ThumbNail" type="Sprite" parent="VBoxContainer"]
+position = Vector2( 959.16, 540.075 )
+scale = Vector2( 1.22704, 1.17407 )
+texture = ExtResource( 4 )
+
 [node name="Title" type="Label" parent="VBoxContainer"]
-margin_right = 549.0
+margin_right = 1915.0
 margin_bottom = 149.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.0431373, 0.160784, 0.921569, 1 )
@@ -55,7 +57,7 @@ __meta__ = {
 
 [node name="SubTitle" type="Label" parent="VBoxContainer"]
 margin_top = 153.0
-margin_right = 549.0
+margin_right = 1915.0
 margin_bottom = 225.0
 custom_fonts/font = SubResource( 2 )
 text = "Search & Recover"
@@ -68,9 +70,10 @@ __meta__ = {
 [node name="NextScreenBtn" type="ColorRect" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -120.0
-margin_right = 120.0
-margin_bottom = 52.0
+margin_left = -135.119
+margin_top = 771.072
+margin_right = 104.881
+margin_bottom = 823.072
 mouse_filter = 1
 color = Color( 0.207843, 0.207843, 0.207843, 1 )
 script = ExtResource( 3 )
